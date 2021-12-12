@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { Spin } from "antd";
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { userRouter } from "./Constant/Route";
+import PublicRoute from "./Routes/PublicRoute.js";
 
 function App() {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Spin />}>
+      <BrowserRouter>
+        <Switch>
+          {userRouter.map((user, index) => {
+            const Component = user.component;
+            return (
+              <Route
+                key={index}
+                exact
+                path={user.path}
+                render={() => (
+                  <PublicRoute
+                    isAuth={isAuthenticated === "KhachHang" ? true : false}
+                  >
+                    <Component />
+                  </PublicRoute>
+                )}
+              ></Route>
+            );
+          })}
+          {/* 
+          {adminRouter.map((admin, index) => {
+            const Component = admin.component;
+            return (
+              <Route
+                exact
+                key={index}
+                path={admin.path}
+                render={() => (
+                  <PrivateRoute isAuth={auth.isAuthenticated}>
+                    <Component />
+                  </PrivateRoute>
+                )}></Route>
+            );
+          })} */}
+          {false ? <Redirect to="/admin" /> : <Redirect to="/" />}
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
