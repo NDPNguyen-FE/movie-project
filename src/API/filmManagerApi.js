@@ -7,8 +7,9 @@ const filmManagerApi = {
   },
 
   getInforFilm: (params) => {
+    // console.log("maPhim in getInforFilm,",maPhim);
     const url = "/api/QuanLyPhim/LayThongTinPhim";
-    return axiosClient.get(url, params);
+    return axiosClient.get(url, {params});
   },
 
   getListFilm: (params) => {

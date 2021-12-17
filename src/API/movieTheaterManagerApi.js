@@ -20,6 +20,8 @@ const movieTheaterManagerApi = {
     const url = "/api/QuanLyRap/LayThongTinLichChieuPhim";
     return axiosClient.get(url, { params });
   },
+
+
 };
 
 export default movieTheaterManagerApi;

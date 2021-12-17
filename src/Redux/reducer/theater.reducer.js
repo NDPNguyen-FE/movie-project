@@ -11,6 +11,8 @@ const initialState = {
     limit: 20,
     total: 0,
   },
+
+  theaterSystemShowtimeInfor: [],
 };
 
 const theaterReducer = (state = initialState, { type, payload }) => {
@@ -39,6 +41,60 @@ const theaterReducer = (state = initialState, { type, payload }) => {
         error: payload,
       };
     }
+
+
+    case theaterType.GET_INFOR_MOVIE_THEATER_START: {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      }
+    }
+
+    case theaterType.GET_INFOR_MOVIE_THEATER_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        theaterSystem: payload.data.content,
+      };
+    }
+
+    case theaterType.GET_INFOR_MOVIE_THEATER_ERROR: {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload,
+      };
+    }
+
+
+    // ----------------------------------------------------------------
+    
+    case theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_START: {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      }
+    }
+
+    case theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        theaterSystemShowtimeInfor: payload.data.content,
+      };
+    }
+
+    case theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_ERROR: {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload,
+      };
+    }
+
+
 
     default:
       return state;

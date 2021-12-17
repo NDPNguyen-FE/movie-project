@@ -18,3 +18,17 @@ export const getListMovie = (params) => (dispatch) => {
     .then((movie) => dispatch(action.getListMovieSuccess(movie)))
     .catch((err) => dispatch(action.getListMovieError(err)));
 };
+
+
+export const getMovieDetail = (params) => (dispatch) => {
+  console.log("params in thunk", params);
+  dispatch(action.getMovieDetailStart());
+
+  filmManagerApi
+  .getInforFilm({ maPhim: params })
+  .then((response) => dispatch(action.getMovieDetailSuccess(response)))
+  .catch((err) => dispatch(action.getMovieDetailError(err)))
+}
+
+
+

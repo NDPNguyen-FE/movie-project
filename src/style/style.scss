@@ -2,3 +2,19 @@
 @import "./variable";
 @import "node_modules/react-modal-video/scss/modal-video.scss";
 @import "./reset";
+
+
+.custom_container {
+    @include desktop {
+        @include custom_container($desktop-width, "bigger");
+    }
+    @include betwween-tablet-desktop{
+        @include custom_container($desktop-width, "smaller");
+    }
+    @include tablet {
+        @include custom_container($tablet-width);
+    }
+    @include mobile {
+        @include custom_container($mobile-width);
+    }
+}

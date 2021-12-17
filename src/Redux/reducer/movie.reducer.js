@@ -12,6 +12,8 @@ const initialState = {
     limit: 20,
     total: 0,
   },
+
+  movieInfor: {},
 };
 
 const movieReducer = (state = initialState, { type, payload }) => {
@@ -59,6 +61,32 @@ const movieReducer = (state = initialState, { type, payload }) => {
     }
 
     case movieType.GET_LIST_MOVIE_ERROR: {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload,
+      };
+    }
+
+    case movieType.GET_MOVIE_DETAIL_START: {
+      return {
+        ...state,
+        isLoading: true,
+        movieInfor: {},
+     
+      };
+    }
+
+
+    case movieType.GET_MOVIE_DETAIL_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        movieInfor: payload.data.content,
+      }
+    }
+
+    case movieType.GET_MOVIE_DETAIL_ERROR: {
       return {
         ...state,
         isLoading: false,

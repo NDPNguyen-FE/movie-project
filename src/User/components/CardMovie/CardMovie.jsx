@@ -1,10 +1,12 @@
+import React from "react";
 import { Button, Card, Col, Rate } from "antd";
 import Meta from "antd/lib/card/Meta";
-import React from "react";
+import { NavLink, useHistory } from 'react-router-dom';
 import "./CardMovie.scss";
 
 const CardMovie = ({ movie }) => {
   console.log(movie);
+  const history = useHistory();
   return (
     <Col xs={24} sm={12} md={8} lg={6} xl={4} className="card">
       <Card
@@ -15,7 +17,11 @@ const CardMovie = ({ movie }) => {
         }
       >
         <Meta title={movie.tenPhim} description={movie.moTa} />
-        <Button className="cardMovie-button"> mua vé</Button>
+        <Button className="cardMovie-button"
+        onClick = {() => {
+          history.push(`moviedetail/${movie.maPhim}`)
+        }}
+        > mua vé</Button>
       </Card>
       <div className="card-rate">
         <p>5</p>

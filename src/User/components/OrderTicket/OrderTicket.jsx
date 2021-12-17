@@ -9,6 +9,7 @@ const OrderTicker = () => {
   const dispatch = useDispatch();
   const { listMovies } = useSelector((state) => state.movie);
   const { showtimesMovie } = useSelector((state) => state.theater);
+  // console.log("showtimesMovie", showtimesMovie);
   const [disabled, setDisabled] = useState(true);
   const { Option } = Select;
 

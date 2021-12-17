@@ -18,9 +18,9 @@ function App() {
                 key={index}
                 exact
                 path={user.path}
-                render={() => (
+                render={(propsRoute) => (
                   <PublicRoute>
-                    <Component />
+                    <Component {...propsRoute}/>
                   </PublicRoute>
                 )}
               ></Route>
