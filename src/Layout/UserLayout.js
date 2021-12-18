@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getListBanner, getListMovie } from "../Redux/thunk/movie.thunk";
 import { getListTheater } from "../Redux/thunk/theater.thunk";
 import Header from "../User/components/Header/Header";
+import ModalAntd from "../User/components/ModalAntd/ModalAntd";
 import LayoutContent from "../User/LayoutContent/LayoutContent";
 
 const UserLayout = ({ children }) => {
@@ -18,6 +19,7 @@ const UserLayout = ({ children }) => {
     <div className="userLayout">
       <Header />
       <LayoutContent> {children}</LayoutContent>
+      <ModalAntd/>
     </div>
   );
 };

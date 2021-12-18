@@ -2,12 +2,14 @@ import { Spin } from "antd";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { userRouter } from "./Constant/Route";
+import { adminRouter, userRouter } from "./Constant/Route";
+import PrivateRoute from "./Routes/PrivateRoute";
 import PublicRoute from "./Routes/PublicRoute.js";
 import ScrollToTop from './User/components/ScrollToTop/ScrollToTop';
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  console.log("isAuthenticated", isAuthenticated);
 
   return (
     <Suspense fallback={<Spin />}>
@@ -31,7 +33,8 @@ function App() {
               ></Route>
             );
           })}
-          {/* 
+          
+
           {adminRouter.map((admin, index) => {
             const Component = admin.component;
             return (
@@ -39,13 +42,15 @@ function App() {
                 exact
                 key={index}
                 path={admin.path}
-                render={() => (
-                  <PrivateRoute isAuth={auth.isAuthenticated}>
-                    <Component />
+                render={(propsRoute) => (
+                  <PrivateRoute isAuth={isAuthenticated}>
+                    <Component  {...propsRoute}/>
                   </PrivateRoute>
                 )}></Route>
             );
-          })} */}
+          })}
+
+
           {false ? <Redirect to="/admin" /> : <Redirect to="/" />}
         </Switch>
       </BrowserRouter>

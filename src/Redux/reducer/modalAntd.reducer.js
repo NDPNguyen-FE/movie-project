@@ -32,6 +32,7 @@ export const modalAntdReducer = (state = initialState, { type, payload }) => {
     case modalAntdType.CLOSE_MODAL_ANTD: {
         return {
              ...state, 
+             modalContent: <p>Default modal content</p>,
              visible: false,
         };
     }
