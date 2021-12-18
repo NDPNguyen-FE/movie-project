@@ -1,8 +1,9 @@
 @import "../../../style/style.scss";
 
 .tabs {
-  @include marginY(3rem);
   @include paddingX(2rem);
+  max-width: 1200px;
+  margin: 3rem auto;
 
   .ant-tabs-tab-active .ant-tabs-tab-btn {
     color: $color-red !important;

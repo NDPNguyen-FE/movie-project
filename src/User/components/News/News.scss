@@ -1,0 +1,23 @@
+@import "../../../style/style.scss";
+
+.news {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.cardNews {
+  @include paddingA(1rem);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .ant-card-cover img {
+    height: 200px;
+  }
+
+  // .ant-card-meta-description {
+  //   overflow: hidden;
+  //   white-space: nowrap;
+  //   text-overflow: ellipsis;
+  // }
+}

@@ -3,6 +3,7 @@ import queryString from "query-string";
 
 const TOKEN_CYBERSOFT =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCDEkMOgIE7hurVuZyAwMSIsIkhldEhhblN0cmluZyI6IjMwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NjU0NzIwMDAwMCIsIm5iZiI6MTYyMDkyNTIwMCwiZXhwIjoxNjU2Njk0ODAwfQ.6o2C_IS8e7HlB9dUZ9eFRYOb2ST9LjIIbn4fO_SS1Qc";
+const ACCESSTOKEN = localStorage.getItem("accessToken");
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API,
@@ -10,6 +11,7 @@ const axiosClient = axios.create({
     "content-type": "application/json",
     timeout: 1000,
     TokenCybersoft: TOKEN_CYBERSOFT,
+    Authorization: `Bearer ${ACCESSTOKEN}`,
   },
   paramsSerializer: (params) => queryString.stringify(params),
 });

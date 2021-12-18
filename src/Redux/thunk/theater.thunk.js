@@ -11,7 +11,6 @@ export const getTheaterByMovieId = (params) => (dispatch) => {
     .catch((err) => dispatch(action.getInforShowtimeMovieError(err)));
 };
 
-
 export const getTheaterInfoByMaHtr = (params) => (dispatch) => {
   dispatch(action.getTheaterInfoStart());
 
@@ -21,8 +20,6 @@ export const getTheaterInfoByMaHtr = (params) => (dispatch) => {
     .catch((err) => dispatch(action.getTheaterInfoError(err)));
 };
 
-
-
 // export const getTheaterSystemShowtimeInfor = (params) => (dispatch) => {
 //   dispatch(action.getTheaterSystemShowtimeInforStart());
 
@@ -30,7 +27,6 @@ export const getTheaterInfoByMaHtr = (params) => (dispatch) => {
 //     .getTheaterSystemShowtimeInfor({ maHtr: params })
 //     .then((response) => dispatch(action.getTheaterSystemShowtimeInforSuccess(response)));
 // }
-
 
 export const getListTheater = (params) => (dispatch) => {
   dispatch(action.getInforMovieTheaterStart());

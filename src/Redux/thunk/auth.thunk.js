@@ -13,3 +13,16 @@ export const actionLogin = (params) => (dispatch) => {
       dispatch(actions.loginFailure());
     });
 };
+
+export const getProfileByToken = (params) => (dispatch) => {
+  dispatch(actions.getProfileByTokenStart());
+  console.log(params);
+  login
+    .profileToken({ Authorization: `Bearer ${params}` })
+    .then((payload) => {
+      dispatch(actions.getProfileByTokenSuccess(payload));
+    })
+    .catch((err) => {
+      dispatch(actions.getProfileByTokenError(err));
+    });
+};

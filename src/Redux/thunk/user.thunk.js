@@ -10,3 +10,14 @@ export const createUser = (params) => (dispatch) => {
     .then((user) => dispatch(action.createUserSuccess(user)))
     .catch((err) => dispatch(action.createUserFailure(err)));
 };
+
+export const updateCustomers = (params) => (dispatch) => {
+  dispatch(action.updateCustomer());
+
+  userManagerApi
+    .updateUser(params)
+    .then((payload) => {
+      dispatch(action.updateCustomerSuccess(payload));
+    })
+    .catch((err) => dispatch(action.updateCustomerFailure()));
+};

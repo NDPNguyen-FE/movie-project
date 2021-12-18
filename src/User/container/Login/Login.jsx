@@ -1,4 +1,4 @@
-import { Form, Input, Button, Row, Col, message } from "antd";
+import { Button, Col, Form, Input, message, Row } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
@@ -17,18 +17,14 @@ const LoginPage = () => {
     dispatch(actionLogin(values));
   };
 
-  console.log("isLoading", isLoading);
-  console.log("status", status);
-  console.log("isLoggedIn", isLoggedIn);
-
   useEffect(() => {
-    if (!isLoading && !isLoggedIn && status === "Login_Failure") {
+    if (!isLoading && !isLoggedIn && status === "login_fail") {
       message.error("Login Failure");
     } else if (!isLoading && isLoggedIn && status === 200) {
       message.success("Login Success");
       history.push("/");
     }
-  }, [isLoading]);
+  }, [isLoading, isLoggedIn, status, history]);
 
   return (
     <div className="login">

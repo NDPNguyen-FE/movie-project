@@ -23,7 +23,7 @@ export default function RatingMovie() {
             />
 
             <div className="rating_start_group">
-                <Rate allowHalf value={movieInfor.danhGia/2} />
+                <Rate allowHalf disabled value={movieInfor.danhGia/2} />
                 <h3 className="half">1/2</h3>
             </div>
         </div>

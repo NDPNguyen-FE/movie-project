@@ -1,9 +1,9 @@
 import axiosClient from "./axiosClient";
 
 const ticketManagerApi = {
-  getAllMovieTheater: () => {
+  getRoomTicket: (params) => {
     const url = "/api/QuanLyDatVe/LayDanhSachPhongVe";
-    return axiosClient.get(url);
+    return axiosClient.get(url, { params });
   },
 
   createCalendarMovie: (params) => {

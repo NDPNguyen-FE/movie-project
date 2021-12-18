@@ -4,6 +4,7 @@ import OrderTicker from "../../components/OrderTicket/OrderTicket";
 import Tab from "../../components/Tabs/Tab";
 import MultiTab from "../../components/MultiTab/MultiTab";
 import "./HomePage.scss";
+import News from "../../components/News/News";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <OrderTicker />
       <Tab />
       <MultiTab />
+      <News />
     </div>
   );
 };

@@ -1,60 +1,18 @@
+import { Avatar, Comment, Form, Input, List, Rate } from "antd";
 import React, { useEffect, useState } from "react";
-import avatar from "../../../../../assets/img/avatar.png";
 import { useDispatch } from "react-redux";
-import { Rate } from "antd";
-import { Comment, Tooltip, List, Form, Button, Input, Avatar,InputNumber  } from "antd";
-import moment from "moment";
-import "./DanhGia.scss";
-import ModalAntd from "../../../ModalAntd/ModalAntd";
 import {
+  changeContentModalAntd,
   closeModalAntd,
   handleOkModalAntdNoLodaing,
   openModalAntd,
-  changeContentModalAntd,
 } from "../../../../../Redux/actions/modal.action";
-import { submitModalThunk } from "./../../../../../Redux/thunk/antdModal.thunk";
+import ModalAntd from "../../../ModalAntd/ModalAntd";
 import { cancelModalAntd } from "./../../../../../Redux/actions/modal.action";
-import DanhGiaClick from './DanhGiaClick';
+import "./DanhGia.scss";
+import DanhGiaClick from "./DanhGiaClick";
 
 const { TextArea } = Input;
-
-const data = [
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: "Minh Quân",
-    avatar: "https://ui-avatars.com/api/?name=Quan",
-    content: (
-      <div className="cmt_content">
-        <p className="cmt_content_text">
-          We supply a series of design principles, practical patterns and high
-          quality design resources (Sketch and Axure), to help people create
-          their product prototypes beautifully and efficiently.
-        </p>
-        <Rate
-          allowHalf
-          disabled
-          defaultValue={2.5}
-          className="cmt_content_start"
-        />
-      </div>
-    ),
-  },
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: "Thanh Trúc",
-    avatar: "https://ui-avatars.com/api/?name=Truc",
-    content: (
-      <div className="cmt_content">
-        <p>
-          We supply a series of design principles, practical patterns and high
-          quality design resources (Sketch and Axure), to help people create
-          their product prototypes beautifully and efficiently.
-        </p>
-        <Rate allowHalf disabled defaultValue={2.5} />
-      </div>
-    ),
-  },
-];
 
 export default function DanhGia() {
   const [state, setState] = useState({
@@ -65,29 +23,20 @@ export default function DanhGia() {
 
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    await dispatch(
+  useEffect(() => {
+    dispatch(
       handleOkModalAntdNoLodaing({
         submitCallback: handleSubmit,
       })
     );
 
-    await dispatch(
+    dispatch(
       cancelModalAntd({
         cancelCallback: () => {
           dispatch(closeModalAntd());
         },
       })
     );
-
-    // setTimeout(() => {
-    //     dispatch(hideLoadingAntd())
-    //   }, 3000);
-    // dispatch(submitModalThunk({
-    //     submitCallback: () => {
-    //                 alert("submit đánh giá")
-    //             }
-    // }))
   }, [state.value]);
 
   useEffect(() => {
@@ -116,14 +65,10 @@ export default function DanhGia() {
   }, [state.value]);
 
   const handleSubmit = () => {
-    // console.log("vào hàm handleSubmit");
-    console.log("state.value", state.value);
     if (!state.value) {
-      // console.log("k có gtri value");
       return;
     }
 
-    // console.log("có gtri value");
     setState({
       ...state,
       submitting: true,
@@ -152,7 +97,6 @@ export default function DanhGia() {
   };
 
   const handleChange = (e) => {
-    // console.log("e.target.value", e.target.value);
     setState({
       ...state,
       value: e.target.value,
@@ -160,15 +104,11 @@ export default function DanhGia() {
   };
 
   const { comments, submitting, value } = state;
-  // console.log("value", value);
-  // console.log("comments", comments);
 
   return (
     <div className="danhgia custom_container">
-    
-     
       <ModalAntd
-        componentClick= {<DanhGiaClick/>}
+        componentClick={<DanhGiaClick />}
         submitBtnText={"Add comment"}
         htmlType="submit"
         cancelBtnText="Cancel"
@@ -206,9 +146,7 @@ export default function DanhGia() {
         }}
       />
 
-    {comments.length > 0 && <CommentList comments={comments} />}
-
-
+      {comments.length > 0 && <CommentList comments={comments} />}
     </div>
   );
 }
@@ -248,16 +186,6 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => {
           placeholder="Bạn nghĩ gì về phim này?"
         />
       </Form.Item>
-
-      {/* <Form.Item label="Số sao">
-        <InputNumber min={1} max={10} defaultValue={7} />
-      </Form.Item> */}
-      
-      {/* <Form.Item>
-        <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-          Add Comment
-        </Button>
-      </Form.Item> */}
     </div>
   );
 };

@@ -1,16 +1,7 @@
-import {
-  AutoComplete,
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  message,
-  Select,
-} from "antd";
+import { AutoComplete, Button, Form, Input, message, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { createUser } from "../../../Redux/thunk/user.thunk";
 import "./Register.scss";
 
@@ -88,16 +79,17 @@ function Register() {
     dispatch(createUser(customer));
   };
 
+  console.log(status);
+
   useEffect(() => {
     if (!isLoading && status) {
-      message.success("Register success!");
       if (status === "Register_Success") {
         history.push("/login");
+      } else {
+        message.success("Register failure!");
       }
-    } else {
-      message.success("Register failure!");
     }
-  }, [isLoading, status]);
+  }, [isLoading, status, history]);
 
   const handleSearch = (value) => {
     let res = [];
@@ -195,6 +187,15 @@ function Register() {
               min: 8,
               message: "Please input your password!",
             },
+            () => ({
+              validator(_, value) {
+                if (!value || value.match(valid)) {
+                  return Promise.resolve();
+                }
+
+                return Promise.reject();
+              },
+            }),
           ]}
           hasFeedback
         >

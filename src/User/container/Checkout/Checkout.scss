@@ -1,0 +1,99 @@
+@import "../../../style/style.scss";
+
+.checkout {
+  @include paddingA(3rem);
+  height: 700px;
+  max-width: 80%;
+  margin: 0 auto;
+
+  &-steps {
+    width: 80%;
+  }
+
+  &-container {
+    margin-top: 2rem;
+  }
+
+  &-banner {
+    .banner-img {
+      @include position(relative);
+      img {
+        width: 100%;
+      }
+      &::after {
+        @include position(absolute, 0, 0, 0);
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba(44, 33, 53, 0.616);
+        z-index: 10;
+      }
+    }
+  }
+
+  &-chair {
+    @include position(relative);
+
+    @include marginY(2rem);
+    .chair-vip {
+      color: rgb(167, 140, 24);
+    }
+
+    .lane {
+      display: flex;
+      gap: 1rem;
+      @include marginY(1rem);
+      .ant-checkbox-inner {
+        display: none;
+      }
+    }
+
+    .chair-standard {
+      color: #142d61;
+    }
+  }
+
+  &-step2 {
+    .chair-selected {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        color: #2d9c11;
+        margin-bottom: 0;
+        @include textStyle(1rem, #2d9c11, 700, none);
+      }
+    }
+
+    .button-checkout {
+      width: 100%;
+      height: 100%;
+      background-color: #2d9c11;
+      border: none;
+      @include textStyle(1rem, $color-white, 600, uppercase);
+    }
+  }
+
+  &-total {
+    @include marginY(2rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .total-button {
+      button {
+        @include textStyle(1rem, $color-white, none, uppercase);
+        @include paddingX(2rem);
+        height: 3rem;
+        border: none;
+        background: linear-gradient(223deg, #2d9c11 0, #39c739 100%);
+        border-radius: 1rem;
+      }
+    }
+  }
+
+  .spinner {
+    @include position(absolute, 50%, none, 50%, none);
+  }
+}

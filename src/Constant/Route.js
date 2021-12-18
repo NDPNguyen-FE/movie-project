@@ -7,7 +7,9 @@ export const userRouter = [
   },
   {
     path: "/moviedetail/:movieId",
-    component: React.lazy(() => import("../User/container/MovieDetail/MovieDetail")),
+    component: React.lazy(() =>
+      import("../User/container/MovieDetail/MovieDetail.jsx")
+    ),
   },
   {
     path: "/login",
@@ -19,7 +21,19 @@ export const userRouter = [
   },
   {
     path: "/ticketroom/:maLichChieu",
-    component: React.lazy(() => import("../User/container/BookingMovie/BookingMovie")),
+    component: React.lazy(() =>
+      import("../User/container/BookingMovie/BookingMovie")
+    ),
+  },
+  {
+    path: "/user-profile",
+    component: React.lazy(() =>
+      import("../User/container/UserProfile/UserProfile")
+    ),
+  },
+  {
+    path: "/checkout/:maLichChieu",
+    component: React.lazy(() => import("../User/container/Checkout/Checkout")),
   },
 ];
 

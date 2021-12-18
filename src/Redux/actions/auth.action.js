@@ -30,7 +30,16 @@ export const getProfileFailure = () => ({
   type: authTypes.GET_USER_PROFILE_FAILURE,
 });
 
-export const getProfileByToken = (payload) => ({
-  type: authTypes.GET_USER_PROFILE_SUCCESS,
+export const getProfileByTokenStart = () => ({
+  type: authTypes.GET_PROFILE_BY_TOKEN_START,
+});
+
+export const getProfileByTokenSuccess = (payload) => ({
+  type: authTypes.GET_PROFILE_BY_TOKEN_SUCCESS,
   payload: payload,
+});
+
+export const getProfileByTokenError = (err) => ({
+  type: authTypes.GET_PROFILE_BY_TOKEN_ERROR,
+  payload: err,
 });

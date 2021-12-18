@@ -43,13 +43,12 @@ const theaterReducer = (state = initialState, { type, payload }) => {
       };
     }
 
-
     case theaterType.GET_INFOR_MOVIE_THEATER_START: {
       return {
         ...state,
         isLoading: true,
         error: null,
-      }
+      };
     }
 
     case theaterType.GET_INFOR_MOVIE_THEATER_SUCCESS: {
@@ -68,22 +67,21 @@ const theaterReducer = (state = initialState, { type, payload }) => {
       };
     }
 
-
     // ----------------------------------------------------------------
-    
+
     case theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_START: {
       return {
         ...state,
         isLoading: true,
         error: null,
-      }
+      };
     }
 
     case theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_SUCCESS: {
       return {
         ...state,
         isLoading: false,
-        theaterSystemShowtimeInfor: payload.data.content,
+        calMovieTheater: payload.data.content,
       };
     }
 
@@ -94,8 +92,6 @@ const theaterReducer = (state = initialState, { type, payload }) => {
         error: payload,
       };
     }
-
-
 
     default:
       return state;

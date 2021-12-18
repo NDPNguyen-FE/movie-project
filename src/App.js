@@ -4,15 +4,20 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { userRouter } from "./Constant/Route";
 import PublicRoute from "./Routes/PublicRoute.js";
-import ScrollToTop from './User/components/ScrollToTop/ScrollToTop';
+import ScrollToTop from "./User/components/ScrollToTop/ScrollToTop";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
+  window.onunload = function () {
+    sessionStorage.removeItem("chairSTD");
+    sessionStorage.removeItem("chairVIP");
+  };
+
   return (
     <Suspense fallback={<Spin />}>
       <BrowserRouter>
-      <ScrollToTop/>
+        <ScrollToTop />
         <Switch>
           {userRouter.map((user, index) => {
             const Component = user.component;
@@ -25,7 +30,7 @@ function App() {
                   <PublicRoute
                     isAuth={isAuthenticated === "KhachHang" ? true : false}
                   >
-                    <Component {...propsRoute}/>
+                    <Component {...propsRoute} />
                   </PublicRoute>
                 )}
               ></Route>

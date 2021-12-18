@@ -1,11 +1,9 @@
 import { Space } from "antd";
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./CardTheater.scss";
 
 const CardTheater = ({ theater }) => {
-  const history = useHistory();
-
   return (
     <div className="cardTheater">
       <Space className="cardContainer">

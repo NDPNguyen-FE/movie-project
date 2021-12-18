@@ -1,48 +1,48 @@
-import React, { useState } from "react";
-import { Modal, Button } from 'antd';
+import { Button, Modal } from "antd";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeModalAntd } from "../../../Redux/actions/modal.action";
 import * as action from "../../../Redux/actions/modal.action";
+import { closeModalAntd } from "../../../Redux/actions/modal.action";
 
-export default function ModalAntd({componentClick, submitBtnText,cancelBtnText, showModalFunc, submitFunc, cancelFunc, flagLoading, htmlType, disabledOkBtn}) {
+export default function ModalAntd({
+  componentClick,
+  submitBtnText,
+  cancelBtnText,
+  showModalFunc,
+  submitFunc,
+  cancelFunc,
+  flagLoading,
+  htmlType,
+  disabledOkBtn,
+}) {
+  const {
+    loading,
+    visible,
+    title,
+    modalContent,
+    submitCallback,
+    cancelCallback,
+  } = useSelector((state) => state.modalAntd);
 
-  const {loading, visible, title, modalContent, submitCallback, cancelCallback } = useSelector((state) => state.modalAntd);
+  // const showModal = () => {};
 
-    // console.log("loading", loading);
-    console.log("visible", visible);
+  // const handleOk = () => {};
 
-    // console.log("modalContent", modalContent);
-    // console.log("htmlType", htmlType);
-
-
-  const showModal = () => {
- 
-  };
-
-  const handleOk = () => {
-  
-  };
-
-  const handleCancel = () => {
-  
-  };
+  // const handleCancel = () => {};
 
   const dispatch = useDispatch();
 
   return (
     <div>
       <>
-        <div onClick={showModalFunc}>
-          
-          {componentClick}
-        </div>
+        <div onClick={showModalFunc}>{componentClick}</div>
         <Modal
           visible={visible}
           title={title}
           onOk={submitCallback}
           onCancel={() => {
             dispatch(closeModalAntd());
-        }}
+          }}
           footer={[
             <Button key="back" onClick={cancelCallback}>
               {cancelBtnText}
@@ -50,31 +50,27 @@ export default function ModalAntd({componentClick, submitBtnText,cancelBtnText, 
             <Button
               key="submit"
               type="primary"
-              htmlType = {htmlType ? htmlType : "button"}
+              htmlType={htmlType ? htmlType : "button"}
               loading={loading}
-              disabled = {disabledOkBtn}
+              disabled={disabledOkBtn}
               onClick={async () => {
-                //   console.log("VÀO submit antd");
-                  if(flagLoading) {
-                      await dispatch(action.displayLoadingAntd());
-                      await submitCallback();
-                      setTimeout(() => {
-                         dispatch(action.hideLoadingAntd());
-                      }, 2000);
-                  } else {
-                    await submitCallback();
+                if (flagLoading) {
+                  await dispatch(action.displayLoadingAntd());
+                  await submitCallback();
+                  setTimeout(() => {
                     dispatch(action.hideLoadingAntd());
-                  }
-                  
-
+                  }, 2000);
+                } else {
+                  await submitCallback();
+                  dispatch(action.hideLoadingAntd());
+                }
               }}
             >
               {submitBtnText}
             </Button>,
-   
           ]}
         >
-        {modalContent}
+          {modalContent}
         </Modal>
       </>
     </div>
