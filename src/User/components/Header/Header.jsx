@@ -2,9 +2,12 @@ import { MenuOutlined, UserOutlined } from "@ant-design/icons/lib/icons";
 import { Avatar, Col, Drawer, Row, Space } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./Header.scss";
 
 const Header = () => {
+  const { profile, isLoggedIn } = useSelector((state) => state.auth);
+  console.log("profile", profile);
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
@@ -40,7 +43,10 @@ const Header = () => {
       <Drawer placement="right" onClose={onClose} visible={visible}>
         <Space direction="vertical">
           <Space className="drawer-item">
-            <Avatar size="small" icon={<UserOutlined />} />
+            {
+              isLoggedIn ? <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} size="small" /> : <Avatar size="small" icon={<UserOutlined />} />
+            }
+            
             <Link to="/login">Đăng Nhập</Link>
           </Space>
           <Link to="/" className="drawer-item">

@@ -3,7 +3,7 @@ import React from 'react'
 export default function BookingMovie() {
     return (
         <div>
-            First BookingMovie
+           trang BookingMovie nef
         </div>
     )
 }
