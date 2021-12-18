@@ -52,7 +52,6 @@ export const getMovieDetailError = () => ({
   type: movieType.GET_MOVIE_DETAIL_ERROR,
 });
 
-
 export const deleteMovie = (payload) => ({
   type: movieType.DELETE_MOVIE,
   payload: payload,

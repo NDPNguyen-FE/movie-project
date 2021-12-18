@@ -1,12 +1,12 @@
-import React from "react";
 import { Button, Card, Col, Rate } from "antd";
 import Meta from "antd/lib/card/Meta";
+import React from "react";
 import { NavLink, useHistory } from 'react-router-dom';
 import "./CardMovie.scss";
 
 const CardMovie = ({ movie }) => {
-  console.log(movie);
   const history = useHistory();
+
   return (
     <Col xs={24} sm={12} md={8} lg={6} xl={4} className="card">
       <Card

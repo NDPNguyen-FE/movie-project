@@ -1,11 +1,12 @@
 import { Spin } from "antd";
 import { Suspense } from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { userRouter } from "./Constant/Route";
 import PublicRoute from "./Routes/PublicRoute.js";
 
 function App() {
-  // const auth = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
     <Suspense fallback={<Spin />}>
@@ -19,7 +20,9 @@ function App() {
                 exact
                 path={user.path}
                 render={(propsRoute) => (
-                  <PublicRoute>
+                  <PublicRoute
+                    isAuth={isAuthenticated === "KhachHang" ? true : false}
+                  >
                     <Component {...propsRoute}/>
                   </PublicRoute>
                 )}

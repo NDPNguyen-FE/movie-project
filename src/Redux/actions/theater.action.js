@@ -13,6 +13,20 @@ export const getInforShowtimeMovieError = () => ({
   type: theaterType.GET_INFOR_SHOWTIME_MOVIE_ERROR,
 });
 
+export const getInforMovieTheaterStart = () => ({
+  type: theaterType.GET_INFOR_MOVIE_THEATER_START,
+});
+
+export const getInforMovieTheaterSuccess = (payload) => ({
+  type: theaterType.GET_INFOR_MOVIE_THEATER_SUCCESS,
+  payload: payload,
+});
+
+
+export const getInforMovieTheaterError = () => ({
+  type: theaterType.GET_INFOR_SHOWTIME_MOVIE_ERROR,
+});
+
 
 export const getTheaterInfoStart = () => ({
   type: theaterType.GET_INFOR_MOVIE_THEATER_START,
@@ -22,6 +36,7 @@ export const getTheaterInfoSuccess = (payload) => ({
   type: theaterType.GET_INFOR_MOVIE_THEATER_SUCCESS,
   payload: payload,
 });
+
 
 export const getTheaterInfoError = (err) => ({
   type: theaterType.GET_INFOR_MOVIE_THEATER_ERROR,
@@ -33,9 +48,11 @@ export const getTheaterInfoError = (err) => ({
 
 
 
+
 export const getTheaterSystemShowtimeInforStart = () => ({
   type: theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_START,
 });
+
 
 export const getTheaterSystemShowtimeInforSuccess = (payload) => ({
   type: theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_SUCCESS,
@@ -46,3 +63,4 @@ export const getTheaterSystemShowtimeInforError = (err) => ({
   type: theaterType.GET_THEATER_SYSTEM_SHOWTIME_INFOR_ERROR,
   payload: err,
 });
+

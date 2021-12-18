@@ -12,8 +12,6 @@ const Tab = () => {
     (movie) => movie.dangChieu === false
   );
   const movieShowing = listMovies.filter((movie) => movie.sapChieu === false);
-  console.log(movieShowing);
-
   return (
     <div className="tabs">
       <Tabs defaultActiveKey="1" centered tabBarStyle={{ border: "none" }}>

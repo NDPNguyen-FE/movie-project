@@ -8,6 +8,7 @@
   z-index: 100;
   -webkit-box-shadow: 0px 7px 20px -1px rgba(0,0,0,0.45); 
   box-shadow: 0px 7px 20px -1px rgba(0,0,0,0.45);
+
   @include tablet {
     @include paddingX(3rem);
   }

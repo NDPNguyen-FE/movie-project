@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import OrderTicker from "../../components/OrderTicket/OrderTicket";
 import Tab from "../../components/Tabs/Tab";
+import MultiTab from "../../components/MultiTab/MultiTab";
 import "./HomePage.scss";
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
       <Carousel />
       <OrderTicker />
       <Tab />
+      <MultiTab />
     </div>
   );
 };

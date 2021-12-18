@@ -3,17 +3,17 @@ import axiosClient from "./axiosClient";
 const movieTheaterManagerApi = {
   getInforMovieTheater: (params) => {
     const url = "/api/QuanLyRap/LayThongTinHeThongRap";
-    return axiosClient.get(url, params);
+    return axiosClient.get(url, { params });
   },
 
   getClusterTheater: (params) => {
     const url = "/api/QuanLyRap/LayThongTinCumRapTheoHeThong";
-    return axiosClient.post(url, params);
+    return axiosClient.get(url, { params });
   },
 
   getTheaterSystemShowtimeInfor: (params) => {
     const url = "/api/QuanLyRap/LayThongTinLichChieuHeThongRap";
-    return axiosClient.post(url, params);
+    return axiosClient.get(url, { params });
   },
 
   getInforShowtimeMovie: (params) => {

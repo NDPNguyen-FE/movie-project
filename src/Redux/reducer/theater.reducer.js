@@ -4,6 +4,7 @@ const initialState = {
   theaterSystem: [],
   clusterTheater: [],
   showtimesMovie: {},
+  calMovieTheater: [],
   isLoading: false,
   error: null,
   pagination: {

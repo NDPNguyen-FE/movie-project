@@ -12,7 +12,7 @@ const userManagerApi = {
   },
 
   createUser: (params) => {
-    const url = "/api/QuanLyNguoiDung/ThemNguoiDung";
+    const url = "/api/QuanLyNguoiDung/DangKy";
     return axiosClient.post(url, params);
   },
 

@@ -14,13 +14,13 @@
 }
 
 @mixin custom_container($width, $flag: null) {
-  @if ( $width == $desktop-width && flag== "bigger") {
+  @if ( $width == $desktop-width and flag== "bigger") {
     max-width: 1000px;
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
-  } @else if ( $width == $desktop-width && flag== "smaller") {
+  } @else if ( $width == $desktop-width and flag== "smaller") {
     max-width: 800px;
     padding-left: 15px;
     padding-right: 15px;

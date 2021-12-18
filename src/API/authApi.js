@@ -1,9 +1,10 @@
-import axiosClient from "./axiosClients";
+import axiosClient from "./axiosClient";
 
 const login = {
-  userLogin: (taikhoan, matkhau) => {
-    const url = "/login";
-    return axiosClient.post(url, { taikhoan, matkhau });
+  userLogin: (params) => {
+    console.log(params);
+    const url = "/api/QuanLyNguoiDung/DangNhap";
+    return axiosClient.post(url, params);
   },
 };
 

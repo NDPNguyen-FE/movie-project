@@ -23,11 +23,31 @@ export const getTheaterInfoByMaHtr = (params) => (dispatch) => {
 
 
 
-export const getTheaterSystemShowtimeInfor = (params) => (dispatch) => {
+// export const getTheaterSystemShowtimeInfor = (params) => (dispatch) => {
+//   dispatch(action.getTheaterSystemShowtimeInforStart());
+
+//   movieTheaterManagerApi
+//     .getTheaterSystemShowtimeInfor({ maHtr: params })
+//     .then((response) => dispatch(action.getTheaterSystemShowtimeInforSuccess(response)));
+// }
+
+
+export const getListTheater = (params) => (dispatch) => {
+  dispatch(action.getInforMovieTheaterStart());
+
+  movieTheaterManagerApi
+    .getInforMovieTheater(params)
+    .then((theater) => dispatch(action.getInforMovieTheaterSuccess(theater)))
+    .catch((err) => dispatch(action.getInforMovieTheaterError(err)));
+};
+
+export const getCalMovieTheater = (params) => (dispatch) => {
   dispatch(action.getTheaterSystemShowtimeInforStart());
 
   movieTheaterManagerApi
-    .getTheaterSystemShowtimeInfor({ maHtr: params })
-    .then((response) => dispatch(action.getTheaterSystemShowtimeInforSuccess(response)))
+    .getTheaterSystemShowtimeInfor({ maHeThongRap: params })
+    .then((theater) =>
+      dispatch(action.getTheaterSystemShowtimeInforSuccess(theater))
+    )
     .catch((err) => dispatch(action.getTheaterSystemShowtimeInforError(err)));
 };
