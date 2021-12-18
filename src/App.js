@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { userRouter } from "./Constant/Route";
 import PublicRoute from "./Routes/PublicRoute.js";
+import ScrollToTop from './User/components/ScrollToTop/ScrollToTop';
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -11,6 +12,7 @@ function App() {
   return (
     <Suspense fallback={<Spin />}>
       <BrowserRouter>
+      <ScrollToTop/>
         <Switch>
           {userRouter.map((user, index) => {
             const Component = user.component;
