@@ -12,6 +12,9 @@ export default function MovieDetail(props) {
     const {movieInfor} = useSelector((state) => state.movie);
     console.log("movieInfor", movieInfor);
 
+    const [movieBottomSection_Height, setMovieBottomSection_Height] = useState(0);
+    console.log("movieBottomSection_Height", movieBottomSection_Height);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,8 +26,8 @@ export default function MovieDetail(props) {
     return (
         <div className="movie_detail">
             
-            <MovieDetailTop movieInfor={movieInfor}/>
-            <MovieDetailBottom movieInfor={movieInfor}/>
+            <MovieDetailTop movieInfor={movieInfor}  movieBottomSection_Height={movieBottomSection_Height}/>
+            <MovieDetailBottom movieInfor={movieInfor} setMovieBottomSection_Height={setMovieBottomSection_Height}/>
         </div>
     )
 }

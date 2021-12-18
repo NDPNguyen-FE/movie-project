@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BookingMovie() {
+export default function Dashboard() {
     return (
         <div>
-           trang BookingMovie nef
+            Trang Dashboard
         </div>
     )
 }

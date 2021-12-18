@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BookingMovie() {
+export default function UserInfo() {
     return (
         <div>
-           trang BookingMovie nef
+            Trang UserInfo
         </div>
     )
 }

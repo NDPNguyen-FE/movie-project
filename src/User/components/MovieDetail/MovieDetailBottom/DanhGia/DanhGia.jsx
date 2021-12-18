@@ -15,6 +15,9 @@ import {
 import { submitModalThunk } from "./../../../../../Redux/thunk/antdModal.thunk";
 import { cancelModalAntd } from "./../../../../../Redux/actions/modal.action";
 import DanhGiaClick from './DanhGiaClick';
+import { useSelector } from "react-redux";
+import {UserOutlined } from "@ant-design/icons/lib/icons";
+
 
 const { TextArea } = Input;
 
@@ -57,6 +60,10 @@ const data = [
 ];
 
 export default function DanhGia() {
+
+  const { profile, isLoggedIn } = useSelector((state) => state.auth);
+
+
   const [state, setState] = useState({
     comments: [],
     submitting: false,
@@ -96,10 +103,7 @@ export default function DanhGia() {
         modalContent: (
           <Comment
             avatar={
-              <Avatar
-                src="https://ui-avatars.com/api/?name=Quan"
-                alt="Han Solo"
-              />
+                isLoggedIn ? <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} size="large" alt={profile.taiKhoan}/> : <Avatar size="small" icon={<UserOutlined />} />
             }
             content={
               <Editor
@@ -137,8 +141,8 @@ export default function DanhGia() {
         comments: [
           ...state.comments,
           {
-            author: "Han Solo",
-            avatar: "https://ui-avatars.com/api/?name=Quan",
+            author: `${profile.taiKhoan}`,
+            avatar: `https://ui-avatars.com/api/?name=${profile.taiKhoan}`,
             content: (
               <div className="cmt_content">
                 <p>{state.value}</p>
@@ -187,8 +191,8 @@ export default function DanhGia() {
                 <Comment
                   avatar={
                     <Avatar
-                      src="https://ui-avatars.com/api/?name=Quan"
-                      alt="Han Solo"
+                      src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`}
+                      alt={`${profile.taiKhoan}`}
                     />
                   }
                   content={
