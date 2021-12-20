@@ -7,7 +7,7 @@ const { confirm } = Modal;
 export function showConfirm(title, contentComponent, callBackConfirm, cancelText, okText, callBackCancel = () => {
   console.log("cancel")
 }) {
-
+    console.log("vào hàm showConfirm");
     confirm({
       title: title,
       icon: <ExclamationCircleOutlined />,

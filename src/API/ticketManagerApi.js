@@ -1,9 +1,10 @@
 import axiosClient from "./axiosClient";
 
 const ticketManagerApi = {
-  getAllMovieTheater: () => {
+  getInfoTicketRoomByMaLichChieu: (params) => {
+    console.log("params in getInfoTicketRoomByMaLichChieu", params);
     const url = "/api/QuanLyDatVe/LayDanhSachPhongVe";
-    return axiosClient.get(url);
+    return axiosClient.get(url, { params });
   },
 
   createCalendarMovie: (params) => {
@@ -12,8 +13,9 @@ const ticketManagerApi = {
   },
 
   orderTicket: (params) => {
+    console.log("vào manageApi orderTicket", params);
     const url = "/api/QuanLyDatVe/DatVe";
-    return axiosClient.post(url, params);
+    return axiosClient.post(url, {params});
   },
 };
 
