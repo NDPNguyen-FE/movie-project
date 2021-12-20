@@ -54,6 +54,16 @@
         color: $dark-gray;
       }
     }
+
+    .userLogin {
+      .logout_span {
+        cursor: pointer;
+        transition: color 0.3s;
+        &:hover {
+          color: $color-red;
+        }
+      }
+    }
   }
 
   &-toggle {

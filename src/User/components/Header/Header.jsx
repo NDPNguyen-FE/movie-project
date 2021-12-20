@@ -69,7 +69,7 @@ const Header = () => {
         <Dropdown overlay={menu} placement="bottomRight" arrow>
           <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} alt={profile.taiKhoan} size="large" />
         </Dropdown>
-        <span onClick={() => {
+        <span className="logout_span" onClick={() => {
           showConfirm(
             "Bạn có chắc muốn đăng xuất",
             <p>Cảm ơn bạn đã sử dụng TIX</p>,
@@ -90,12 +90,12 @@ const Header = () => {
     <div className="header">
       <Row justify="center" align="middle" className="header-container">
         <Col xs={12} md={8} className="header-logo">
-          <a href="/">
+          <NavLink to="/">
             <img
               src="https://tix.vn/app/assets/img/icons/web-logo.png"
               alt="logo"
             />
-          </a>
+          </NavLink>
         </Col>
         <Col md={8} className="header-menu">
           <Link to="/">Lịch Chiếu</Link>

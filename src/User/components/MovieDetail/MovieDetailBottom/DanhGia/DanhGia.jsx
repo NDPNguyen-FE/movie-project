@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { Rate } from "antd";
 import { Comment, Tooltip, List, Form, Button, Input, Avatar,InputNumber  } from "antd";
 import moment from "moment";
-import "./DanhGia.scss";
 import ModalAntd from "../../../ModalAntd/ModalAntd";
 import {
   closeModalAntd,
@@ -17,6 +16,7 @@ import { cancelModalAntd } from "./../../../../../Redux/actions/modal.action";
 import DanhGiaClick from './DanhGiaClick';
 import { useSelector } from "react-redux";
 import {UserOutlined } from "@ant-design/icons/lib/icons";
+import "./DanhGia.scss";
 
 
 const { TextArea } = Input;

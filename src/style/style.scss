@@ -18,3 +18,13 @@
         @include custom_container($mobile-width);
     }
 }
+
+
+
+.disabled_button {
+    cursor: not-allowed;
+}
+
+.text_center {
+    text-align: center;
+}
