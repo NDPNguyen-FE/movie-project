@@ -39,29 +39,46 @@ export const getInfoTicketRoom = (params) => {
 
 
 
-export const payTicket = (thongTinDatVe) => {
-    return async dispatch => {
-        try {
-            const response = await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,
-                method: 'POST',
-                data: thongTinDatVe,
-                headers: {
-                  "TokenCybersoft": TOKEN_CYBERSOFT,
-                  'Authorization': 'Bearer ' + localStorage.getItem("accessToken"),
-                }
+// export const payTicket = (thongTinDatVe) => {
+//     return async dispatch => {
+//         try {
+//             const response = await Axios({
+//                 url: `https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,
+//                 method: 'POST',
+//                 data: thongTinDatVe,
+//                 headers: {
+//                   "TokenCybersoft": TOKEN_CYBERSOFT,
+//                   'Authorization': 'Bearer ' + localStorage.getItem("accessToken"),
+//                 }
     
-            })
-            console.log("data in datVeAction", response.data);
-            if(response.status === 200) {
-                dispatch(action.payTicketSuccess(response));
-                showMessageAntd("success", "Đặt vé thành công");
-            }
+//             })
+//             console.log("data in datVeAction", response.data);
+//             if(response.status === 200) {
+//                 dispatch(action.payTicketSuccess(response));
+//                 showMessageAntd("success", "Đặt vé thành công");
+//             }
 
-        } catch (error) {
-            showMessageAntd("error", "Đặt vé thất bại");
-            dispatch(action.payTicketError(error));
-        }
+//         } catch (error) {
+//             showMessageAntd("error", "Đặt vé thất bại");
+//             dispatch(action.payTicketError(error));
+//         }
+
+
+
+export const payTicket = (params) => {
+    console.log("thongTinDatVe", params);
+    return (dispatch) => {
+        dispatch(action.payTicketStart());
+        
+        ticketManagerApi
+        .orderTicket({DanhSachVe: params})
+        .then((response) => {
+            console.log("đặt vé thành công");
+            dispatch(action.payTicketSuccess(response));
+            showMessageAntd("success", "Đặt vé thành công");
+            
+        })
+        .catch(err => dispatch(action.payTicketError(err)))
     }
 }
 

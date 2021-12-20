@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React, {useEffect} from "react";
+=======
+import React from "react";
+>>>>>>> 800d82d (add booking-page)
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import "./BookingResult.scss";
 import Button from './../../Button/Button';
+<<<<<<< HEAD
 import { resetGheDangChon } from './../../../../Redux/actions/ticket.action';
+=======
+>>>>>>> 800d82d (add booking-page)
 
 
 export default function BookingResult({infoTicketRoom, setCurrentPage}) {
@@ -20,6 +27,7 @@ export default function BookingResult({infoTicketRoom, setCurrentPage}) {
 
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
   useEffect(() => {
     return () => {
       dispatch(resetGheDangChon());
@@ -27,6 +35,8 @@ export default function BookingResult({infoTicketRoom, setCurrentPage}) {
   }, [])
 
 
+=======
+>>>>>>> 800d82d (add booking-page)
   const renderGheDangChon = () => {
     return arrGheDangChon.map((gheDangChon, index) => {
       return <span key={index}>{` ${gheDangChon.tenGheForm}, `}</span>;

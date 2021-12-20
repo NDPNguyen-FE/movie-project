@@ -119,6 +119,7 @@ function TicketRoom({infoTicketRoom, setCurrentPage}) {
                                         title: <p>Hoàn tất đặt vé</p>,
                                         drawerContent: <BookingForm infoTicketRoom={infoTicketRoom} setCurrentPage={setCurrentPage}/>,
                                         footerExist: false,
+
                                     }
                                   ));
                                 }}
