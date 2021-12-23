@@ -1,8 +1,5 @@
 @import "../../../../style/style.scss";
 
-.header {
-    display: none;
-}
 
 .layoutContent {
     margin-top: 0;
@@ -49,7 +46,7 @@
                     @include position(absolute,-20px );
                     height: 4px;
                     @media (max-width: 618px) {
-                        height: 8px;
+                        height: 12px;
                     }
                   
                     width:0;

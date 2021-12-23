@@ -11,6 +11,8 @@ export default function DrawAntd() {
   const dispatch = useDispatch();
 
   // const [visible, setVisible] = useState(false);
+    const {visible, title, drawerContent, footerExist} = useSelector((state) => state.drawerAntd);
+    const dispatch = useDispatch();
 
   // const showDrawer = () => {
   //   dispatch(action.openDawerAntd({

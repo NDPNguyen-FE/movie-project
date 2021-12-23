@@ -49,6 +49,8 @@ export const payTicketError = () => ({
 });
 
 
+
+
 export const createCalendarMovieStart = () => {
   return {
     type: ticketType.CREATE_CALENDAR_MOVIE_START,

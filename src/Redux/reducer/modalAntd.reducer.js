@@ -18,7 +18,6 @@ const initialState = {
 }
 
 export const modalAntdReducer = (state = initialState, { type, payload }) => {
-    // console.log("TYPE", type);
     switch (type) {
     case modalAntdType.OPEN_MODAL_ANTD: {
         return {

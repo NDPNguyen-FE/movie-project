@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { Rate, Alert, Popover } from "antd";
 import { Comment, Tooltip, List, Form, Button, Input, Avatar,InputNumber  } from "antd";
 import moment from "moment";
+import "./DanhGia.scss";
 import ModalAntd from "../../../ModalAntd/ModalAntd";
 import {
   closeModalAntd,
