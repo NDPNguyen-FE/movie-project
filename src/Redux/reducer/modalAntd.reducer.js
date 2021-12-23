@@ -13,17 +13,19 @@ const initialState = {
     },
     loading: false,
     visible: false,
+    okButtonText: "OK",
+    cancelButtonText: "CANCELL",
 }
 
 export const modalAntdReducer = (state = initialState, { type, payload }) => {
-    // console.log("TYPE", type);
     switch (type) {
     case modalAntdType.OPEN_MODAL_ANTD: {
         return {
              ...state, 
              visible: true,
              title: payload.title,
-            
+             okButtonText: payload.okButtonText, 
+             cancelButtonText: payload.cancelButtonText,
         };
     }
 
@@ -32,7 +34,6 @@ export const modalAntdReducer = (state = initialState, { type, payload }) => {
     case modalAntdType.CLOSE_MODAL_ANTD: {
         return {
              ...state, 
-             modalContent: <p>Default modal content</p>,
              visible: false,
         };
     }

@@ -33,15 +33,31 @@ export const adminRouter = [
     component: React.lazy(() => import("../Admin/container/Dashboard/Dashboard")),
   },
 
-  // {
-  //   path: "/admin/products",
-  //   component: React.lazy(() => import("../Admin/pages/Products/ProductAdmin")),
-  // },
+  {
+    path: "/admin/films",
+    component: React.lazy(() => import("../Admin/container/Films/Films")),
+  },
+  {
+    path: "/admin/films/editfilm/:movieId",
+    component: React.lazy(() => import("../Admin/container/Films/EditFilm/EditFilm")),
+  },
+  {
+    path: "/admin/films/showtime/:movieId/:tenphim",
+    component: React.lazy(() => import("../Admin/container/Films/ShowTime/ShowTime")),
+  },
 
-  // {
-  //   path: "/admin/customers",
-  //   component: React.lazy(() => import("../Admin/pages/Customers/Customer")),
-  // },
+  {
+    path: "/admin/films/addnewfilm",
+    component: React.lazy(() => import("../Admin/container/Films/AddNewFilm/AddNewFilm")),
+  },
+  {
+    path: "/admin/users",
+    component: React.lazy(() => import("../Admin/container/Users/Users")),
+  },
+  {
+    path: "/admin/users/addnewuser",
+    component: React.lazy(() => import("../Admin/container/Users/AddNewUser/AddNewUser")),
+  },
 
   // {
   //   path: "/admin/orders",

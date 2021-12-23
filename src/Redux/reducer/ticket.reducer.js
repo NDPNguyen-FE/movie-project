@@ -103,6 +103,14 @@ const ticketReducer = (state = initialState, { type, payload }) => {
         };
       }
 
+      case ticketType.RESET_GHE_DANG_CHON: {
+        console.log("vào case RESET_GHE_DANG_CHON");
+        return {
+          ...state,
+          isLoading: false,
+          arrGheDangChon: [],
+        }
+      }
 
     default:
         return state

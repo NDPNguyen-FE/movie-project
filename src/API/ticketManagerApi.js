@@ -9,7 +9,7 @@ const ticketManagerApi = {
 
   createCalendarMovie: (params) => {
     const url = "/api/QuanLyDatVe/TaoLichChieu";
-    return axiosClient.post(url, params);
+    return axiosClient.post(url, {params});
   },
 
   orderTicket: (params) => {

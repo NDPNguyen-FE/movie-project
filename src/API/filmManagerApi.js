@@ -14,7 +14,7 @@ const filmManagerApi = {
 
   getListFilm: (params) => {
     const url = "/api/QuanLyPhim/LayDanhSachPhim";
-    return axiosClient.get(url, params);
+    return axiosClient.get(url, {params});
   },
 
   getFilFollowDay: (params) => {
@@ -24,7 +24,7 @@ const filmManagerApi = {
 
   createFilm: (params) => {
     const url = "/api/QuanLyPhim/ThemPhimUploadHinh";
-    return axiosClient.post(url, params);
+    return axiosClient.post(url, {params});
   },
 
   filmManager: (params) => {
@@ -33,8 +33,9 @@ const filmManagerApi = {
   },
 
   deleteFilm: (params) => {
+    console.log("vào hàm xóa",params);
     const url = "/api/QuanLyPhim/XoaPhim";
-    return axiosClient.delete(url, params);
+    return axiosClient.delete(url, {params});
   },
 };
 

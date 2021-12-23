@@ -118,7 +118,7 @@ function TicketRoom({infoTicketRoom, setCurrentPage}) {
                                     dispatch(openDawerAntd({
                                         title: <p>Hoàn tất đặt vé</p>,
                                         drawerContent: <BookingForm infoTicketRoom={infoTicketRoom} setCurrentPage={setCurrentPage}/>,
-
+                                        footerExist: false,
                                     }
                                   ));
                                 }}

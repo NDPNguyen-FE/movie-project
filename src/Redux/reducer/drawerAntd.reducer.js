@@ -6,6 +6,7 @@ const initialState = {
     visible: false,
     title: "Default title",
     drawerContent: <p>Default modal content</p>,
+    footerExist: true,
 }
 
 const drawerAntdReducer = (state = initialState, { type, payload }) => {
@@ -17,6 +18,7 @@ const drawerAntdReducer = (state = initialState, { type, payload }) => {
                  visible: true,
                  title: payload.title,
                  drawerContent: payload.drawerContent,
+                 footerExist: payload.footerExist,
             };
         }
     

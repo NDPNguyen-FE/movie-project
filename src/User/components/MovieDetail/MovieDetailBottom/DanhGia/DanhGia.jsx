@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import avatar from "../../../../../assets/img/avatar.png";
 import { useDispatch } from "react-redux";
-import { Rate } from "antd";
+import { Rate, Alert, Popover } from "antd";
 import { Comment, Tooltip, List, Form, Button, Input, Avatar,InputNumber  } from "antd";
 import moment from "moment";
+import "./DanhGia.scss";
 import ModalAntd from "../../../ModalAntd/ModalAntd";
 import {
   closeModalAntd,
@@ -14,10 +16,7 @@ import {
 import { submitModalThunk } from "./../../../../../Redux/thunk/antdModal.thunk";
 import { cancelModalAntd } from "./../../../../../Redux/actions/modal.action";
 import DanhGiaClick from './DanhGiaClick';
-import { useSelector } from "react-redux";
-import {UserOutlined } from "@ant-design/icons/lib/icons";
-import "./DanhGia.scss";
-
+import {NavLink } from "react-router-dom";
 
 const { TextArea } = Input;
 
@@ -61,7 +60,7 @@ const data = [
 
 export default function DanhGia() {
 
-  const { profile, isLoggedIn } = useSelector((state) => state.auth);
+  const {profile, isLoggedIn} = useSelector((state) => state.auth);
 
 
   const [state, setState] = useState({
@@ -103,7 +102,10 @@ export default function DanhGia() {
         modalContent: (
           <Comment
             avatar={
-                isLoggedIn ? <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} size="large" alt={profile.taiKhoan}/> : <Avatar size="small" icon={<UserOutlined />} />
+              <Avatar
+                src="https://ui-avatars.com/api/?name=Quan"
+                alt="Han Solo"
+              />
             }
             content={
               <Editor
@@ -141,7 +143,7 @@ export default function DanhGia() {
         comments: [
           ...state.comments,
           {
-            author: `${profile.taiKhoan}`,
+            author: profile.taiKhoan,
             avatar: `https://ui-avatars.com/api/?name=${profile.taiKhoan}`,
             content: (
               <div className="cmt_content">
@@ -170,18 +172,21 @@ export default function DanhGia() {
   return (
     <div className="danhgia custom_container">
     
-     
+    {
+      isLoggedIn 
+      ? 
       <ModalAntd
         componentClick= {<DanhGiaClick/>}
-        submitBtnText={"Add comment"}
         htmlType="submit"
-        cancelBtnText="Cancel"
         flagLoading={true}
         disabledOkBtn={state.value === "" ? true : false}
         showModalFunc={async () => {
           await dispatch(
             openModalAntd({
               title: "Bạn nghĩ gì về phim này?",
+              okButtonText: "Add comment",
+              cancelButtonText: "Cancel comment",
+
             })
           );
 
@@ -192,7 +197,7 @@ export default function DanhGia() {
                   avatar={
                     <Avatar
                       src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`}
-                      alt={`${profile.taiKhoan}`}
+                      alt={profile.taiKhoan}
                     />
                   }
                   content={
@@ -209,6 +214,14 @@ export default function DanhGia() {
           );
         }}
       />
+      : 
+      <Popover placement="topLeft" title={"Go to Login Page"} content={<NavLink to="/login" >Let's go</NavLink> }>
+        <Alert message="Bạn cần đăng nhập để đánh giá ---> HOVER ME" type="error" />
+      </Popover>
+      
+    }
+
+      
 
     {comments.length > 0 && <CommentList comments={comments} />}
 

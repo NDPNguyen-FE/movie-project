@@ -39,7 +39,8 @@ export default function MovieDetailTop({movieInfor, movieBottomSection_Height}) 
           <div className="movietop_content_inside">
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col className="gutter-row" span={6}>
-                <div className="movie_item" onClick = {async() => {
+                <div className="movie_item"
+                 onClick = {async() => {
                   await dispatch(openModalAntd({
                     title: `Trailer ${movieInfor.tenPhim}`
                   }));

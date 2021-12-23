@@ -6,7 +6,7 @@ import "./DrawAntd.scss";
 
 export default function DrawAntd() {
 
-    const {visible, title, drawerContent} = useSelector((state) => state.drawerAntd);
+    const {visible, title, drawerContent, footerExist} = useSelector((state) => state.drawerAntd);
     const dispatch = useDispatch();
 
     // const [visible, setVisible] = useState(false);
@@ -33,12 +33,15 @@ export default function DrawAntd() {
             onClose={onClose} 
             visible={visible}
             footer={
+              footerExist === true ? 
                 <Space className="footer_drawer">
                   <Button onClick={onClose}>Cancel</Button>
                   <Button type="primary" onClick={onClose}>
                     OK
                   </Button>
                 </Space>
+                :
+                null
               }
             >
                     {drawerContent}

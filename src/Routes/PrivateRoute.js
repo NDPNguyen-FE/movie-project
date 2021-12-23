@@ -14,7 +14,7 @@ export default function PrivateRoute({isAuth, children}) {
         return <Redirect to="/login" />;
     }
 
-    if(!isAuth) {
+    if(isAuth === false || isAuth ==="KhachHang") {
         //nếu không phải là admin
         showConfirm(
           "Bạn không đủ quyền truy cập trang này", 

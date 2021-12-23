@@ -48,3 +48,31 @@ export const payTicketError = () => ({
   type: ticketType.PAY_TICKET_ERROR,
 });
 
+
+
+
+export const createCalendarMovieStart = () => {
+  return {
+    type: ticketType.CREATE_CALENDAR_MOVIE_START,
+  }
+}
+
+
+export const createCalendarMovieSuccess = (payload) => ({
+  type: ticketType.CREATE_CALENDAR_MOVIE_ERROR,
+  payload: payload,
+});
+
+
+export const createCalendarMovieError = () => ({
+  type: ticketType.PAY_TICKET_ERROR,
+});
+
+
+
+export const resetGheDangChon = () => {
+  return {
+    type: ticketType.RESET_GHE_DANG_CHON,
+  }
+}
+

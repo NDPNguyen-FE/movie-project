@@ -45,6 +45,17 @@ const Header = () => {
     setVisible(false);
   };
 
+  const decideMenu = (isAuthenticated) => {
+    if(isAuthenticated=== false || isAuthenticated==="KhachHang") {
+      console.log("trường hợp là kh");
+      return menuUser;
+    }
+    if(isAuthenticated=== true || isAuthenticated==="QuanTri") {
+      console.log("trường hợp là admin");
+      return menuAdmin;
+    }
+  }
+
   const renderUser = () => {
     if(!isLoggedIn) {
       //chưa đăng nhập 
@@ -57,16 +68,16 @@ const Header = () => {
       
     } else {
        //đã đăng nhập
-       let menu = menuUser;
+      //  let menu = menuUser;
 
        //nếu là admin 
-       if(isAuthenticated === "QuanTri") {
-         menu = menuAdmin;
-       }
+      //  if(isAuthenticated === true) {
+      //    menu = menuAdmin;
+      //  }
 
        return (
         <div className="userLogin">
-        <Dropdown overlay={menu} placement="bottomRight" arrow>
+        <Dropdown overlay={decideMenu(isAuthenticated)} placement="bottomRight" arrow>
           <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} alt={profile.taiKhoan} size="large" />
         </Dropdown>
         <span className="logout_span" onClick={() => {
@@ -124,13 +135,18 @@ const Header = () => {
       <Drawer placement="right" onClose={onClose} visible={visible}>
         <Space direction="vertical">
           <Space className="drawer-item">
+        
             {
+              renderUser()
+            }
+         
+            {/* {
               isLoggedIn ? <Avatar src={`https://ui-avatars.com/api/?name=${profile.taiKhoan}`} size="small" /> : <Avatar size="small" icon={<UserOutlined />} />
             }
             
             {
               isLoggedIn ?  "Đăng Xuất" : <Link to="/login">Đăng Nhập</Link> 
-            }
+            } */}
           </Space>
           <Link to="/" className="drawer-item">
             Lịch Chiếu
