@@ -1,20 +1,9 @@
-
 import React, {useEffect} from "react";
-
-import React from "react";
-
-
-import React, {useEffect} from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import "./BookingResult.scss";
 import Button from './../../Button/Button';
-
 import { resetGheDangChon } from './../../../../Redux/actions/ticket.action';
-
-import { resetGheDangChon } from './../../../../Redux/actions/ticket.action';
-
 
 
 export default function BookingResult({infoTicketRoom, setCurrentPage}) {

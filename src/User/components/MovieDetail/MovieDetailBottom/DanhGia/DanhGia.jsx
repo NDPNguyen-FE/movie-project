@@ -17,10 +17,6 @@ import { submitModalThunk } from "./../../../../../Redux/thunk/antdModal.thunk";
 import { cancelModalAntd } from "./../../../../../Redux/actions/modal.action";
 import DanhGiaClick from './DanhGiaClick';
 import {NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import {UserOutlined } from "@ant-design/icons/lib/icons";
-import "./DanhGia.scss";
-
 
 const { TextArea } = Input;
 
